@@ -185,7 +185,7 @@ export default class Login extends wepy.page {
 
         // 跳转到我的页面
         setTimeout(() => {
-          wepy.switchTab({ url: '/pages/user' })
+          wepy.switchTab({ url: '/pages/users/me' })
         }, 2000)
       }
     } catch (err) {
