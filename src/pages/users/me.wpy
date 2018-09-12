@@ -48,6 +48,12 @@
           </view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
+        <navigator class="weui-cell weui-cell_access" url="{{ user ? '/pages/topics/userIndex?user_id='+ user.id : '' }}">
+          <view class="weui-cell__bd" url="">
+            <view class="weui-cell__bd">我的话题</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
         <navigator class="weui-cell weui-cell_acccess" url="">
           <view class="weui-cell__bd" url="">
             <view class="weui-cell__bd">我的回复</view>
