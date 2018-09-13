@@ -38,20 +38,19 @@
 import wepy from 'wepy'
 import replyMixin from '@/mixins/replyMixin'
 
-export default class replyIndex extends wepy.page {
+export default class replyUserIndex extends wepy.page {
   config = {
-    // 可以下拉刷新
     enablePullDownRefresh: true,
-    // 页面标题
-    navigationBarTitleText: '回复列表'
-  }
-  data = {
-    requestData: {}
+    navigationBarTitleText: '用户回复列表'
   }
   mixins = [replyMixin]
+  data = {
+    requestData: {},
+    include: 'user,topic'
+  }
   async onLoad(options) {
-    // 获取 url 参数中的话题 id
-    this.requestData.url = 'topics/' + options.topic_id + '/replies'
+    this.requestData.url = 'users/' + options.user_id + '/replies'
+    this.requestData.include = 'user,topic'
     await this.getReplies()
     this.$apply()
   }
