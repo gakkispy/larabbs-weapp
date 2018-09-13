@@ -22,6 +22,13 @@ page {
   width: 50px;
   height: 50px;
 }
+.create-reply {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
 </style>
 <template>
   <view class="page">
@@ -76,6 +83,10 @@ page {
           </navigator>
         </view>
       </view>
+      <!-- 回复按钮 -->
+      <navigator url="/pages/replies/create?topic_id={{ topic.id }}">
+        <image src="/images/reply.png" class="create-reply" />
+      </navigator>
     </view>
   </view>
 </template>
@@ -148,6 +159,11 @@ export default class TopicShow extends wepy.page {
     // 获取当前登录用户
     this.user = await this.$parent.getCurrentUser()
     this.$apply()
+  }
+  async onShow() {
+    this.$parent.checkRefreshPages(util.getCurrentPageUrl, () => {
+      this.getTopic(this.topic.id)
+    })
   }
   methods = {
     async deleteTopic() {
