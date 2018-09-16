@@ -83,7 +83,7 @@
   import api from '@/utils/api'
   import topicList from '@/components/topicList'
   import util from '@/utils/util'
-  import unreadCount from '@/mixins/unreadCount'
+  // import unreadCount from '@/mixins/unreadCount'
 
   export default class TopicIndex extends wepy.page {
     config = {
@@ -107,7 +107,7 @@
         return this.currentCategory.id || 0
       }
     }
-    mixins = [unreadCount]
+    // mixins = [unreadCount]
     // 获取分类信息
     async getCategories() {
       // 从缓存中获取分类数据

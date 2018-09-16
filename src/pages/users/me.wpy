@@ -42,10 +42,10 @@
             <view>未登录</view>
           </view>
         </navigator>
-        <navigator class="weui-cell weui-cell_acccess" url="">
+        <navigator class="weui-cell weui-cell_acccess" url="{{ user ? '/pages/notifications/index' : ''}}">
           <view class="weui-cell__bd" url="">
             <view class="weui-cell__bd">
-              <view style="display: inline-block; vertical-align: middle">我的消息</view>
+              <view style="display: inline-block; vertical-align: middle;">我的消息</view>
               <view class="weui-badge" style="margin-left: 5px;" wx:if="{{ unreadCount }}">{{ unreadCount }}</view>
             </view>
           </view>
@@ -74,7 +74,7 @@
 <script>
 import wepy from 'wepy'
 import api from '@/utils/api'
-import unreadCount from '@/mixins/unreadCount'
+// import unreadCount from '@/mixins/unreadCount'
 
 export default class User extends wepy.page {
   config = {
@@ -84,7 +84,7 @@ export default class User extends wepy.page {
     // 用户信息
     user: null
   }
-  mixins = [unreadCount]
+  // mixins = [unreadCount]
   async onShow() {
     // 每次打开页面，获取当前用户信息
     this.user = await this.$parent.getCurrentUser()

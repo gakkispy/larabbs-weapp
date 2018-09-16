@@ -56,7 +56,8 @@ export default class extends wepy.app {
       'pages/auth/register',
       'pages/replies/index',
       'pages/replies/userIndex',
-      'pages/replies/create'
+      'pages/replies/create',
+      'pages/notifications/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -138,11 +139,11 @@ export default class extends wepy.app {
 
   onLaunch() {
     // 小程序启动，调用一起获取未读消息数
-    this.updateUnreadCount()
+    // this.updateUnreadCount()
     // 每隔 60 秒，调用一起获取未读消息数
-    setInterval(() => {
-      this.updateUnreadCount()
-    }, 60000)
+    // setInterval(() => {
+    //   this.updateUnreadCount()
+    // }, 60000)
   }
   // 获取唯独消息数
   async updateUnreadCount() {
