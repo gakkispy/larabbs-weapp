@@ -177,6 +177,8 @@ export default class Login extends wepy.page {
         wepy.setStorageSync('access_token_expired_at', new Date().getTime() + registerResponse.data.meta.expires_id * 1000)
         // 设置用户信息
         wepy.setStorageSync('userInfo', registerResponse.data)
+        // 获取用户权限
+        this.$parent.getPerms()
 
         wepy.showToast({
           title: '注册成功', // 提示的内容,
