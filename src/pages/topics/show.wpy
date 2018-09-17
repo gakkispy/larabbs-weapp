@@ -165,6 +165,15 @@ export default class TopicShow extends wepy.page {
       this.getTopic(this.topic.id)
     })
   }
+  onShareAppMessage() {
+    return {
+      title: this.topic.title,
+      path: '/pages/topics/show?id=' + this.topic.id,
+      success: res => { console.log(res) },
+      fail: res => { console.log(res) }
+    }
+  }
+
   methods = {
     async deleteTopic() {
       // 删除确认

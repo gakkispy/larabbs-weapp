@@ -89,5 +89,15 @@ export default class UserShow extends wepy.page {
       })
     }
   }
+  onShareAppMessage() {
+    return {
+      title: this.user.name,
+      path: '/pages/users/show?id=' + this.user.id,
+      // 图片为用户头像
+      imageUrl: this.user.avatar,
+      success: res => { console.log(res) },
+      fail: res => { console.log(res) }
+    }
+  }
 }
 </script>
